@@ -10,7 +10,64 @@ import { DatastoreService } from '../../@core/datastore.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private _fb: FormBuilder, private _router: Router, private _dataStore: DatastoreService) {}
+  selected: string;
+  states: string[] = [
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    'Hawaii',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Iowa',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Maine',
+    'Maryland',
+    'Massachusetts',
+    'Michigan',
+    'Minnesota',
+    'Mississippi',
+    'Missouri',
+    'Montana',
+    'Nebraska',
+    'Nevada',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'New York',
+    'North Dakota',
+    'North Carolina',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Vermont',
+    'Virginia',
+    'Washington',
+    'West Virginia',
+    'Wisconsin',
+    'Wyoming'
+  ];
+  constructor(
+    private _fb: FormBuilder,
+    private _router: Router,
+    private _dataStore: DatastoreService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this._fb.group({
@@ -19,7 +76,10 @@ export class LoginComponent implements OnInit {
     });
   }
   login(modal) {
-    if (modal.email === 'jayac9700@gmail.com' && modal.password === 'jaya*212') {
+    if (
+      modal.email === 'jayac9700@gmail.com' &&
+      modal.password === 'jaya*212'
+    ) {
       this._router.navigate(['/pages']);
       this._dataStore.setData('loginInfo', modal);
     } else {

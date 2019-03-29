@@ -35,3 +35,7 @@
     <div class="col-2"></div>
   </div>
 </div>
+<pre class="card card-block card-header mb-3">Model: {{selected | json}}</pre>
+<input [(ngModel)]="selected"
+       [typeahead]="states"
+       class="form-control">
